@@ -2,7 +2,7 @@
   "name": "range-parser",
   "author": "TJ Holowaychuk <tj@vision-media.ca> (http://tjholowaychuk.com)",
   "description": "Range header field string parser",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "contributors": [
     "Douglas Christopher Wilson <doug@somethingdoug.com>",
     "James Wyatt Cready <wyatt.cready@lanetix.com>",
@@ -16,15 +16,16 @@
   ],
   "repository": "jshttp/range-parser",
   "devDependencies": {
-    "eslint": "3.19.0",
-    "eslint-config-standard": "10.2.1",
-    "eslint-plugin-markdown": "1.0.0-beta.6",
-    "eslint-plugin-import": "2.8.0",
-    "eslint-plugin-node": "5.2.1",
-    "eslint-plugin-promise": "3.6.0",
-    "eslint-plugin-standard": "3.0.1",
-    "istanbul": "0.4.5",
-    "mocha": "1.21.5"
+    "deep-equal": "1.0.1",
+    "eslint": "6.0.1",
+    "eslint-config-standard": "13.0.1",
+    "eslint-plugin-markdown": "1.0.0",
+    "eslint-plugin-import": "2.18.0",
+    "eslint-plugin-node": "9.1.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.0",
+    "mocha": "6.1.4",
+    "nyc": "14.1.1"
   },
   "files": [
     "HISTORY.md",
@@ -37,7 +38,7 @@
   "scripts": {
     "lint": "eslint --plugin markdown --ext js,md .",
     "test": "mocha --reporter spec",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot",
-    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter dot"
+    "test-cov": "nyc --reporter=html --reporter=text npm test",
+    "test-travis": "nyc --reporter=text npm test"
   }
 }
